@@ -1,0 +1,63 @@
+body {
+  width: 100vw;
+  height: 100vh;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: darkgray;
+}
+
+main {
+  display: grid;
+  grid-template-columns: repeat(19, 6ch);
+  grid-template-rows: repeat(16, 6ch);
+  place-items: stretch;
+}
+
+.hidden{
+  visibility: hidden;
+}
+
+.game-end{
+  position: absolute;
+  background-color: white;
+  border-radius: 50px;
+  padding: 25px;
+}
+
+.tile-wall {
+  background-image: url("images/wall.png");
+}
+
+.tile-goal {
+  background-image: url("images/goal.png");
+}
+
+.tile-space {
+  background-image: none;
+}
+
+.entity-player {
+    background-image: url("images/player.png");
+}
+
+.entity-block{
+    background-image: url("images/block.png");
+}
+
+.entity-block-goal{
+    background-image: url("images/block-goal.png");
+}
+
+.tile-wall,
+.tile-goal,
+.tile-space,
+.entity-block,
+.entity-player,
+.entity-block-goal {
+  image-rendering: pixelated;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
