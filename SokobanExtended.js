@@ -34,7 +34,7 @@ function checkInput(input){
 }
 
 function movePlayer(x, y){
-    let currentPlayerTile = getPlayerTileId();
+    let currentPlayerTile = getPlayerElement();
     let playerPos = getVector2FromTileId(currentPlayerTile.id);
     let nextMoveTile = getTileByCoordinates(playerPos[0] + x, playerPos[1] + y);
     
@@ -102,7 +102,7 @@ function getVector2FromTileId(tileId){
     return vector2;
 }
 
-function getPlayerTileId(){
+function getPlayerElement(){
     return document.getElementsByClassName(Entities.Character)[0];
 }
 
