@@ -14,6 +14,11 @@ var Entities = {
     BlockDone: "entity-block-goal",
 };
 
+var GridProperties = {
+    Width: "--columns",
+    Height: "--rows"
+}
+
 /*  Legend
     W = Wall
     B = Movable block
@@ -22,7 +27,7 @@ var Entities = {
 */
 var tileMap01 = {
     width: 19,
-    height: 16,
+    height: 13,
     mapGrid: [
         [
             [" "],

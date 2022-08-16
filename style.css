@@ -5,9 +5,11 @@
     /* 
       If screen-height / rows makes smaller tiles choose this,
       If screen-width / columns makes smaller tiles choose this,
+      If --max-resolution / columns makes smaller tiles choose this,
       the result will be a map that is "Fullscreen" and fits the screen fully
     */
-    --tile-size: min(calc(100vh / var(--rows)), calc(100vw / var(--columns)));
+    --max-resolution: 720px;
+    --tile-size: min(calc(100vh / var(--rows)), calc(100vw / var(--columns)), calc(var(--max-resolution) / var(--rows)));
 }
 
 html {
@@ -28,7 +30,7 @@ main {
     display: grid;
     grid-template-columns: repeat(var(--columns), var(--tile-size));
     grid-template-rows: repeat(var(--rows), var(--tile-size));
-    place-items: stretch;
+    box-shadow: 0 0 1rem 1rem gainsboro;
 }
 
 .hidden {
@@ -52,6 +54,10 @@ main {
 
 .tile-space {
     background-image: none;
+}
+
+.tile-debug-border {
+    border: 1px dotted black;
 }
 
 .entity-player {
