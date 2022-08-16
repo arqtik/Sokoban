@@ -1,9 +1,22 @@
+:root {
+    /* Columns and Rows are based on TileMap01 */
+    --columns: 19;
+    --rows: 13;
+    /* 
+      If screen-height / rows makes smaller tiles choose this,
+      If screen-width / columns makes smaller tiles choose this,
+      the result will be a map that is "Fullscreen" and fits the screen fully
+    */
+    --tile-size: min(calc(100vh / var(--rows)), calc(100vw / var(--columns)));
+}
+
 html {
     height: 100vh;
     width: 100vw;
 }
 
 body {
+    height: 100%;
     margin: 0;
     display: flex;
     justify-content: center;
@@ -13,8 +26,8 @@ body {
 
 main {
     display: grid;
-    grid-template-columns: repeat(19, 6ch);
-    grid-template-rows: repeat(16, 6ch);
+    grid-template-columns: repeat(var(--columns), var(--tile-size));
+    grid-template-rows: repeat(var(--rows), var(--tile-size));
     place-items: stretch;
 }
 
