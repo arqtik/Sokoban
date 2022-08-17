@@ -7,21 +7,20 @@
     <title>Sokoban Game</title>
     <meta name="description" content="A Sokoban game in js and html">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="reset.css">
     <link rel="stylesheet" href="style.css">
     <script src="js/SokobanBase.js"></script>
     <script src="js/SokobanExtended.js"></script>
 </head>
 
 <body onload="generateTiles(tileMap01)">
-    <header>
-        <nav>
-            <ul>
-                <li>Maps</li>
-                <li>Builder</li>
-                <li>Reset</li>
-            </ul>
-        </nav>
-    </header>
+    <nav>
+        <ul>
+            <li>MAPS</li>
+            <li>BUILDER</li>
+            <li>RESET</li>
+        </ul>
+    </nav>
     <main>
         <div id="tile-grid"></div>
         <div id="end-screen" class="game-end hidden">

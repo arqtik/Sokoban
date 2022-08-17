@@ -8,9 +8,13 @@
       If --max-resolution / columns makes smaller tiles choose this,
       the result will be a map that is "Fullscreen" and fits the screen fully
     */
+    --nav-height: 3rem;
     --max-resolution: 720px;
-    --tile-scale-padding: 200px;
-    --tile-size: min(calc((100vh - var(--tile-scale-padding)) / var(--rows)), calc((100vw - var(--tile-scale-padding)) / var(--columns)), calc(var(--max-resolution) / var(--rows)));
+    --map-border: 1rem;
+    --map-padding: 1rem;
+    --tile-scale-margin-vertical: calc(var(--nav-height) + (var(--map-padding) + var(--map-border)) * 2);
+    --tile-scale-margin-horizontal: calc((var(--map-padding) + var(--map-border)) * 2);
+    --tile-size: min(calc((100vh - var(--tile-scale-margin-vertical)) / var(--rows)), calc((100vw - var(--tile-scale-margin-horizontal)) / var(--columns)), calc(var(--max-resolution) / var(--rows)));
 }
 
 html {
@@ -23,9 +27,40 @@ body {
     margin: 0;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: stretch;
     align-items: center;
-    background-color: whitesmoke;
+    flex: 1;
+    background-color: #f5f5f5;
+}
+
+nav {
+    width: 100%;
+    height: var(--nav-height);
+    /*background-color: #f0f0f0;*/
+    background-color: #d3d3d3;
+    box-shadow: 0 1px 5px 0 gray;
+}
+
+nav>ul {
+    height: 100%;
+    display: flex;
+    gap: 0.5rem;
+    justify-content: flex-start;
+}
+
+nav>ul>li {
+    display: flex;
+    align-items: center;
+    background-color: cornflowerblue;
+    color: white;
+    padding: 0 2rem 0 2rem;
+}
+
+main {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 
 #tile-grid {
@@ -33,9 +68,9 @@ body {
     grid-template-columns: repeat(var(--columns), var(--tile-size));
     grid-template-rows: repeat(var(--rows), var(--tile-size));
     background-color: whitesmoke;
-    border: 1rem solid cornflowerblue;
+    border: var(--map-border) solid cornflowerblue;
     border-radius: 5px;
-    padding: 10px
+    padding: var(--map-padding);
 }
 
 .hidden {
