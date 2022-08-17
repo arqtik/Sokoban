@@ -8,12 +8,12 @@ function generateTiles(map) {
     let main = document.getElementById('tile-grid');
     setGridProperties(map.width, map.height);
 
-    for (let i = 0; i < map.height; i++) {
-        for (let j = 0; j < map.width; j++) {
+    for (let y = 0; y < map.height; y++) {
+        for (let x = 0; x < map.width; x++) {
             let tile = document.createElement('div');
-            tile.id = 'x' + j + 'y' + i;
+            tile.id = 'x' + x + 'y' + y;
 
-            switch (map.mapGrid[i][j][0]) {
+            switch (map.mapGrid[y][x][0]) {
                 case " ":
                     tile.className = Tiles.Space;
                     //tile.className = Tiles.Space.concat(' ', 'tile-debug-border');
