@@ -4,7 +4,8 @@ let gameEnd = false;
 let tileClassUnderPlayer = Tiles.Space; // Remembers which tile is under player so that it can be replace back when player moves
 let amountOfGoals = 0; // Amount of goals the map has, required for win condition
 
-function generateTiles(map) {
+function generateTilesFromMap(map) {
+    removeTilesFromGrid();
     setGridProperties(map.width, map.height);
 
     for (let y = 0; y < map.height; y++) {
@@ -35,6 +36,23 @@ function generateTiles(map) {
             TileGrid.appendChild(tile);
         }
     }
+}
+
+function GenerateTiles(width, height, bordersActive = false) {
+    removeTilesFromGrid();
+    setGridProperties(width, height);
+
+    for (let y = 0; y < height; y++) {
+        for (let x = 0; x < width; x++) {
+            let tile = document.createElement('div');
+            tile.id = 'x' + x + 'y' + y;
+            tile.className = Tiles.Space;
+
+            TileGrid.appendChild(tile);
+        }
+    }
+
+    setTileBorders(bordersActive);
 }
 
 function checkInput(input) {
@@ -154,11 +172,20 @@ function setGridProperties(width, height) {
     root.style.setProperty(GridProperties.Height, height);
 }
 
-function removeTilesFromMap() {
+function removeTilesFromGrid() {
     TileGrid.innerHTML = '';
 }
 
-// Re-draw the map - removes tiles and generates again
-function reDrawMap() {
+function setTileBorders(active) {
+    var tiles = Array.from(TileGrid.children);
 
+    if (active) {
+        tiles.forEach(tile => {
+            tile.classList.add("tile-border");
+        });
+    } else {
+        tiles.forEach(tile => {
+            tile.classList.remove("tile-border");
+        });
+    }
 }
