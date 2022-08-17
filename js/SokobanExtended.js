@@ -2,10 +2,9 @@ document.onkeydown = checkInput;
 
 let gameEnd = false;
 let tileClassUnderPlayer = Tiles.Space; // Remembers which tile is under player so that it can be replace back when player moves
-let amountOfGoals = 0;
+let amountOfGoals = 0; // Amount of goals the map has, required for win condition
 
 function generateTiles(map) {
-    let main = document.getElementById('tile-grid');
     setGridProperties(map.width, map.height);
 
     for (let y = 0; y < map.height; y++) {
@@ -33,7 +32,7 @@ function generateTiles(map) {
                     break;
             }
 
-            main.appendChild(tile);
+            TileGrid.appendChild(tile);
         }
     }
 }
@@ -153,4 +152,13 @@ function setGridProperties(width, height) {
 
     root.style.setProperty(GridProperties.Width, width);
     root.style.setProperty(GridProperties.Height, height);
+}
+
+function removeTilesFromMap() {
+    TileGrid.innerHTML = '';
+}
+
+// Re-draw the map - removes tiles and generates again
+function reDrawMap() {
+
 }

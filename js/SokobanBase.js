@@ -19,6 +19,10 @@ var GridProperties = {
     Height: "--rows"
 }
 
+const TileGridID = "tile-grid";
+
+const TileGrid = document.getElementById(TileGridID);
+
 /*  Legend
     W = Wall
     B = Movable block
