@@ -13,11 +13,21 @@
 </head>
 
 <body onload="generateTiles(tileMap01)">
-    <main id="tile-grid">
+    <header>
+        <nav>
+            <ul>
+                <li>Maps</li>
+                <li>Builder</li>
+                <li>Reset</li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <div id="tile-grid"></div>
+        <div id="end-screen" class="game-end hidden">
+            Game End
+        </div>
     </main>
-    <div id="end-screen" class="game-end hidden">
-        Game End
-    </div>
 </body>
 
 </html>

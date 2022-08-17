@@ -9,7 +9,8 @@
       the result will be a map that is "Fullscreen" and fits the screen fully
     */
     --max-resolution: 720px;
-    --tile-size: min(calc(100vh / var(--rows)), calc(100vw / var(--columns)), calc(var(--max-resolution) / var(--rows)));
+    --tile-scale-padding: 200px;
+    --tile-size: min(calc((100vh - var(--tile-scale-padding)) / var(--rows)), calc((100vw - var(--tile-scale-padding)) / var(--columns)), calc(var(--max-resolution) / var(--rows)));
 }
 
 html {
@@ -21,16 +22,20 @@ body {
     height: 100%;
     margin: 0;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     background-color: whitesmoke;
 }
 
-main {
+#tile-grid {
     display: grid;
     grid-template-columns: repeat(var(--columns), var(--tile-size));
     grid-template-rows: repeat(var(--rows), var(--tile-size));
-    box-shadow: 0 0 1rem 1rem gainsboro;
+    background-color: whitesmoke;
+    border: 1rem solid cornflowerblue;
+    border-radius: 5px;
+    padding: 10px
 }
 
 .hidden {
