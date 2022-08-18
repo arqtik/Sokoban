@@ -1,4 +1,12 @@
 :root {
+    --color-main: #265B6A;
+    --color-light: #119AC1;
+    --color-medium: #1F768E;
+    --color-dark: #223E46;
+    --color-darkest: #151F22;
+    --color-background: whitesmoke;
+    --color-default-black: rgb(40, 40, 40);
+    --color-text: white;
     /* Columns and Rows are based on TileMap01 */
     --columns: 19;
     --rows: 13;
@@ -11,7 +19,7 @@
     --nav-height: 3rem;
     --max-resolution: 720px;
     --map-border: 1rem;
-    --map-padding: 1rem;
+    --map-padding: 0rem;
     --tile-scale-margin-vertical: calc(var(--nav-height) + (var(--map-padding) + var(--map-border)) * 2);
     --tile-scale-margin-horizontal: calc((var(--map-padding) + var(--map-border)) * 2);
     --tile-size: min(calc((100vh - var(--tile-scale-margin-vertical)) / var(--rows)), calc((100vw - var(--tile-scale-margin-horizontal)) / var(--columns)), calc(var(--max-resolution) / var(--rows)));
@@ -30,14 +38,14 @@ body {
     justify-content: stretch;
     align-items: center;
     flex: 1;
-    background-color: #f5f5f5;
+    background-color: var(--color-background);
 }
 
 nav {
     width: 100%;
     height: var(--nav-height);
     /*background-color: #f0f0f0;*/
-    background-color: #d3d3d3;
+    background-color: var(--color-light);
     box-shadow: 0 1px 5px 0 gray;
 }
 
@@ -51,8 +59,8 @@ nav>ul {
 nav>ul>li {
     display: flex;
     align-items: center;
-    background-color: cornflowerblue;
-    color: white;
+    background-color: var(--color-medium);
+    color: var(--color-text);
     padding: 0 2rem 0 2rem;
 }
 
@@ -67,8 +75,8 @@ main {
     display: grid;
     grid-template-columns: repeat(var(--columns), var(--tile-size));
     grid-template-rows: repeat(var(--rows), var(--tile-size));
-    background-color: whitesmoke;
-    border: var(--map-border) solid cornflowerblue;
+    background-color: var(--color-background);
+    border: var(--map-border) solid var(--color-dark);
     border-radius: 5px;
     padding: var(--map-padding);
 }
@@ -79,7 +87,7 @@ main {
 
 .game-end {
     position: absolute;
-    background-color: white;
+    background-color: var(--color-darkest);
     border-radius: 50px;
     padding: 25px;
 }
@@ -97,7 +105,7 @@ main {
 }
 
 .tile-border {
-    border: 1px dotted black;
+    border: 1px dotted var(--color-darkest);
 }
 
 .entity-player {
